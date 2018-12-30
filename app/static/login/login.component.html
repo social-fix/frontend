@@ -1,0 +1,27 @@
+ <form class="login">
+ 	<mat-card [formGroup]="form">
+ 	<mat-card-header>
+ 		<h1>Log in!</h1>
+ 	</mat-card-header>
+ 	<mat-card-content>
+ 	<div class="row">
+  <mat-form-field class="col-md-12">
+  	<input matInput placeholder="email address" [formControl]="this.form.get('email')" required>
+  </mat-form-field>
+</div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+    <input matInput type="password" placeholder="password" [formControl]="this.form.get('password')" required>
+</mat-form-field>
+</div>
+<div class="row authFail">
+	<mat-error *ngIf="authFail">{{errorText}}</mat-error>
+	<mat-spinner diameter="30" *ngIf="loading"></mat-spinner>
+</div>
+<mat-dialog-actions>
+    <button class="mat-raised-button mat-accent"(click)="save()" [disabled]="this.form.invalid">Let's go!</button>
+</mat-dialog-actions>
+</mat-card-content>
+</mat-card>
+
+</form>

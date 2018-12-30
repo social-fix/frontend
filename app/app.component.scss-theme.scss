@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+
+@mixin sf-app-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  mat-sidenav-container {
+    mat-toolbar {
+      .branding{
+        color: mat-color($accent);
+      }
+      button {
+        &.active {
+          color: mat-color($accent, default-contrast);
+          background-color: mat-color($accent);
+        }
+      }
+
+      .sign-in-button {
+        color: mat-color($accent);
+        border: 1px solid mat-color($accent);
+      }
+
+      .link {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+    mat-sidenav {
+      .mat-list-item {
+        &.active {
+          color: mat-color($accent, default-contrast);
+          background-color: mat-color($accent);
+        }
+      }
+    }
+
+    .footer {
+      background-color: mat-color($primary);
+      .links,
+      .signature {
+        button, a{
+          color: mat-color($accent);
+          &:hover{
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  sf-register {
+    h1, h2{
+      color: mat-color($accent);
+    }
+  }
+  mat-basic-chip {
+    background-color: mat-color($accent);
+  }
+
+  .snackbar-success {
+    color: #96c824;  
+    background-color: white;
+  }
+  .snackbar-error {
+    color: rgb(197, 0, 0); 
+    background-color: white; 
+  }
+}

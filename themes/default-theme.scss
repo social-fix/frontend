@@ -1,0 +1,6 @@
+$sf-primary: mat-palette($mat-gray, 900);
+$sf-accent: mat-palette($mat-amber, A400, 300, 600);
+$sf-warn: mat-palette($mat-red, 500);
+
+
+$sf-theme: mat-light-theme($sf-primary, $sf-accent, $sf-warn);

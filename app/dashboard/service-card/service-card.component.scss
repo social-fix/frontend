@@ -1,0 +1,13 @@
+mat-card{
+    h2{
+        display: inline;
+        margin: 5px;
+    }
+    mat-chip-list{
+        display: inline;
+        mat-basic-chip {
+            display: inline;
+        }
+    }
+}
+

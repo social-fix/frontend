@@ -1,0 +1,170 @@
+@import "../../../styles-variables.scss";
+@import url(https://fonts.googleapis.com/css?family=Caveat+Brush);
+.background {
+  padding: 15% 0;
+  position: relative;
+  text-shadow: 2px 2px 5px #000000;
+  h1 {
+    font-size: 8em;
+    font-family: 'Caveat Brush', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    
+  }
+  h2{
+    font-size: 2em;
+  }
+
+  .actions {
+    text-align: center;
+    margin: 50px;
+    z-index: 1;
+
+    span {
+      display: inline-block;
+      font-weight: bold;
+      padding: 20px 10px 30px 10px;
+    }
+
+    a {
+      margin: 0 5px 10px 0;
+
+      &.actions-main {
+        text-transform: uppercase;
+        padding: 3px 24px;
+      }
+
+      i {
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url('../../../assets/img/join.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;  
+    background-size: cover;
+    opacity: 1;
+    content: '';
+  }
+ 
+  .gradient {
+    &::before {
+      position: relative;
+      top: 95%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: '';
+
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+}
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .background {
+    padding: 40px 0;
+
+    h1 {
+      line-height: 1em;
+    }
+
+    .actions {
+      margin: 40px 0 0 0;
+
+      span {
+        padding: 10px 0 20px 0;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.about {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+    h1{
+    text-align: center;
+    padding: 5%;  
+    }
+}
+
+.join {
+  padding: 15% 0;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 5px #000000;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url('../../../assets/img/street.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;  
+    background-size: cover;
+    opacity: 1;
+    content: '';
+  }
+
+.registerForm{
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+}
+
+  .container {
+    position: relative;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .background {
+    display: hidden;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .background {
+    padding: 40px 0;
+
+    h1 {
+      line-height: 1em;
+    }
+
+    .actions {
+      margin: 40px 0 0 0;
+
+      span {
+        padding: 10px 0 20px 0;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <h1 [ngClass]="animateOnRouteEnter">Socialfix</h1>
+      <div class="actions">
+        <br>
+        <h2 [ngClass]="animateOnRouteEnter">showing Society what <i>society</i>  means</h2>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container about">
+  <div class="row">
+    <h1 class="col-12">How does it work?</h1>
+  </div>
+  <mat-vertical-stepper #stepper="matVerticalStepper">
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Search help</ng-template>
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      </mat-card>
+    </mat-step>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Agree</ng-template>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      </mat-card>
+    </mat-step>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Relax!</ng-template>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      </mat-card>
+    </mat-step>
+  </mat-vertical-stepper>
+  <br>
+</div>
+
+<div class="join">
+  <div class="container" >
+    <div class="registerForm">
+      <sf-register></sf-register>
+    </div>
+  </div>
+</div>

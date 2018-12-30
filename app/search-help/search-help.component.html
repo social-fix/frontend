@@ -1,0 +1,23 @@
+<div class="container">
+  <label>Search for:</label>
+    <section>
+        <mat-checkbox>a bed</mat-checkbox>
+        <mat-checkbox>a meal</mat-checkbox>
+        <mat-checkbox>a bathroom</mat-checkbox>
+      </section>
+      <mat-spinner diameter="100"  *ngIf="loading"></mat-spinner>
+      <mat-error *ngIf="error">{{error}}</mat-error>
+  <mat-tab-group *ngIf="searchResult">
+    <mat-tab label="list">
+      <div class="tab-content">
+        <sf-help-list [helps]=searchResult></sf-help-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="map" position="0">
+      <div class="tab-content">
+        <sf-help-map></sf-help-map>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

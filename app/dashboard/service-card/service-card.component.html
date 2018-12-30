@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title clas="row">
+            <i class="fa fa-bed fa-2x" *ngIf="help.type == 'bed'"></i>
+            <i class="fa fa-spoon fa-2x" *ngIf="help.type == 'meal'"></i>
+            <i class="fa fa-shower fa-2x" *ngIf="help.type == 'washing'"></i>
+            <h2>{{help.type}}</h2>
+            <mat-chip-list>
+                <mat-chip color="accent" selected *ngIf="help.can_be_casher">casher</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.can_be_halal">halal</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.can_be_vegetarian">vegetarian</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.can_be_vegan">vegan</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.toilet_available">W.C.</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.shower_available">shower</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.bath_available">bath</mat-chip>
+                <mat-chip color="accent" selected *ngIf="help.laundry_available">laundry</mat-chip>
+            </mat-chip-list>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-sm-3">
+                <b>from</b>
+                <p>{{help.start | date:"MMMM dd HH:mm"}}</p>
+            </div>
+            <div class="col-sm-3">
+                <b>to</b>
+                <p>{{help.end | date:"MMMM dd HH:mm"}}</p>
+            </div>
+            <div class="col-sm-3" *ngIf="help.type == 'bed'">
+                <b>Number of nights</b>
+                <p>{{help.number_nights}}</p>
+            </div>
+            <div class="col-sm-3">
+                <b>guests</b>
+                <p>{{help.guests.length}}/{{help.guest_limit}}</p>
+            </div>
+        </div>
+        <mat-expansion-panel *ngIf="help.comment != ''">
+            <mat-expansion-panel-header>
+                <mat-panel-description>
+                    unroll to read the comments
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="col">
+                <b>Comments</b>
+                <p>{{help.comment}}</p>
+            </div>
+        </mat-expansion-panel>
+    </mat-card-content>
+</mat-card>

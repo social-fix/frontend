@@ -1,0 +1,71 @@
+<div class="child">
+    <div class="container">
+        <mat-card>
+            <mat-card-header>
+                <h2>Share a meal!</h2>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="form">
+                    <mat-form-field class="mat-form-field-full-width">
+                        <input matInput type="number" placeholder="how many people can you feed?" [formControl]="this.form.get('guest_limit')" required>
+                        <mat-icon matSuffix>people</mat-icon>
+                    </mat-form-field>
+                    <h3>Which diet can you provide if asked?</h3>
+                    <mat-selection-list [formGroup]="mealForm" [formControl]="this.mealForm.get('diet')" multiple>
+                        <mat-list-option *ngFor="let option of options" [value]="option" selected>
+                            {{option}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                    <h3>Enter the period during which the person can arrive:</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>from</h4>
+                            <mat-form-field class="smallInput">
+                                <input matInput [matDatepicker]="picker1" (click)="picker1.open()" placeholder="day/month/year" [formControl]="this.form.get('start_date')" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker1">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <h4>at</h4>
+                            <mat-form-field class="smallInput">
+                                <input matInput placeholder="HH:MM (24h)" required [formControl]="this.form.get('start_time')">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>to</h4>
+                            <mat-form-field class="smallInput">
+                                <input matInput [matDatepicker]="picker2" (click)="picker2.open()" placeholder="day/month/year" [formControl]="this.form.get('end_date')" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker2">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <h4>at </h4>
+                            <mat-form-field class="smallInput">
+                                <input matInput placeholder="HH:MM (24h)" required [formControl]="this.form.get('end_time')">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <h3>Extra</h3>            
+                    <div class="row"> 
+                        <textarea [formControl]="this.form.get('comment')" matInput matTextareaAutosize matAutosizeMinRows="5" maxlength="500" #commentCount placeholder="Please add here any detail your guest should know" class="comment"></textarea>
+                        <mat-hint align="end">{{commentCount.value.length}} / 500</mat-hint>  
+                    </div>
+                    <div class="row choiceButtons">
+                        <button mat-raised-button (click)='onCancel("meal")'>
+                            cancel
+                        </button>
+                        <button mat-raised-button color="accent" (click)='onSubmit()' [disabled]="this.form.invalid || this.mealForm.invalid">
+                            done!
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

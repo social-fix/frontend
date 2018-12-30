@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5 col-md-4 col-lg-3">
+			<mat-card class="user-card" [ngClass]="animateOnRouteEnter" *ngIf="user$ | async as u">
+				<mat-card-header>
+					<div mat-card-avatar class="user-header-image"></div>
+				</mat-card-header>
+				<mat-card-content>
+					<mat-card-title>{{u.name}}</mat-card-title>
+					<mat-card-subtitle>{{u.gender | getGender}}, {{u.birthdate | age}} years old</mat-card-subtitle>
+					<mat-card-subtitle *ngIf="u.location">{{u.location.city}}, {{u.location.country}}</mat-card-subtitle>
+					<div class="profileButtons">
+						<a mat-button routerLink="/viewProfile">view profile</a>
+						<a mat-button routerLink="/updateProfile">edit profile</a>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+	<div class="row helpCards">
+		<div class="col-md-6">
+			<mat-card [ngClass]="animateOnRouteEnter">
+				<mat-card-header>
+					<mat-card-title class="super-duper-title">Need a <b>bath</b>? A nice <b>meal</b>? A <b>bed</b>?</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<a routerLink="/searchHelp" mat-raised-button color="accent">check available help around you! <i class="fa fa-thumbs-o-up"></i></a>
+				</mat-card-content>
+			</mat-card>
+		</div>
+		<div class="col-md-6">
+			<mat-card [ngClass]="animateOnRouteEnter">
+				<mat-card-header>
+					<mat-card-title class="super-duper-title">Want to <b>help</b> others?</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<a mat-raised-button color="accent" routerLink="/offer-help"><i class="fa fa-heart fa-3x"></i>share what you can</a>
+					<div class="or"><b>or</b></div>
+					<a mat-raised-button color="accent" routerLink="/support"><i class="fa fa-credit-card fa-3x"></i>support the
+						project</a>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+	<div class="row" class="width: 100%;" *ngIf="hostedHelps$ | async as hostedHelps">
+		<h1>Services you offer</h1>
+		<mat-accordion>
+			<div *ngFor="let help of hostedHelps">
+				<sf-service-card [help]=help></sf-service-card>
+			</div>
+		</mat-accordion>
+		<p *ngIf="hostedHelps.length == 0">no booked services so far</p>
+	</div>
+	<div class="row" class="width: 100%;" *ngIf="joinedHelps$ | async as joinedHelps">
+		<h1>Services you registered to</h1>
+		<mat-accordion>
+			<div *ngFor="let help of joinedHelps">
+				<sf-service-card [help]=help></sf-service-card>
+			</div>
+		</mat-accordion>
+		<p *ngIf="joinedHelps.length == 0">no booked services so far</p>
+	</div>
+</div>

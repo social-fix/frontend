@@ -1,0 +1,7 @@
+<div class="container-fluid"  *ngIf="user$ | async as u">
+	<h1>REGISTRATION SUCCESSFUL!</h1>
+	<br>
+	<h4>What now?</h4>
+	<p>An email has been sent to <b>{{u.email}}</b>. When you receive it, follow the instructions to complete your registration within 24H. Otherwise, your registration will be deleted.</p>
+	<img src="../../assets/logo.svg">
+</div>

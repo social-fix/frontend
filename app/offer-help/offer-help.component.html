@@ -1,0 +1,25 @@
+<div class="container" *ngIf="help$ | async as help">
+	<h1>Choose among the following services</h1>
+	<div class="row categories">
+		<div class="col-md-4">
+			<button mat-raised-button color="accent" (click)="clickBed()"><i class="fa fa-bed fa-3x"></i> offer a bed</button>
+		</div>
+		<div class="col-md-4">
+			<button mat-raised-button color="accent" (click)="clickMeal()"><i class="fa fa-spoon fa-3x"></i> cook a meal</button>
+		</div>
+		<div class="col-md-4">
+			<button mat-raised-button color="accent" (click)="clickWashing()"><i class="fa fa-bath fa-3x"></i>washing facilities</button>
+		</div>
+	</div>
+	<div class="row" *ngIf="bed">
+		<sf-bed [type]='"bed"' (close)='onClose($event)'></sf-bed>
+	</div>
+	<div class="row" *ngIf="meal">
+		<sf-meal [type]='"meal"' (close)='onClose($event)'></sf-meal>
+	</div>
+	<div class="row" *ngIf="washing">
+		<sf-washing [type]='"washing"' (close)='onClose($event)'></sf-washing>
+	</div>
+	<mat-spinner diameter="30"  *ngIf="help.loading"></mat-spinner>
+	<mat-error *ngIf="help.error">{{help.error.message}}</mat-error>
+</div>

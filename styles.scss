@@ -1,0 +1,41 @@
+@import 'styles-variables';
+
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/openlayers/css/ol';
+
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+@import 'styles-reset';
+
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+@import 'themes/default-theme.scss';
+
+
+@import 'styles-reset.scss-theme';
+@import 'app/app.component.scss-theme';
+@import 'app/static/landing/landing.component.scss-theme';
+@import 'app/offer-help/offer-help.component.scss-theme';
+
+
+@mixin custom-components-theme($theme) {
+  @include sf-styles-reset-theme($theme);
+  @include sf-app-component-theme($theme);
+  @include landing-component-theme($theme);
+  @include offer-help-component-theme($theme);
+}
+
+@include angular-material-theme($sf-theme);
+@include custom-components-theme($sf-theme);
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+* {
+	font-family: 'Lato', sans-serif;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}
