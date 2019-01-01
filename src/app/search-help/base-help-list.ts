@@ -22,9 +22,9 @@ export class BaseHelpList implements OnDestroy {
             (data) => {
                 if (data.type === SUBSCRIBE_TO_HELP_SUCCESS) {
                     const payload: AnyHelp = (<SubscribeToHelpSuccess>data).payload;
-                    this.wsService.helpMessages$.forEach((helpConnexion: UpdateHelpConnexion) => {
+                    this.wsService.helpMessages.forEach((helpConnexion: UpdateHelpConnexion) => {
                         if (payload.id === helpConnexion.help_id) {
-                            helpConnexion.connexion.next(payload);
+                            helpConnexion.connexion$.next(payload);
                         }
                     });
                 }

@@ -62,24 +62,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
     ngOnInit(): void {
-        this.wsService.helpMessages$.forEach(
-            updateHelpConnexion => {
-                updateHelpConnexion.connexion.subscribe((msg: AnyHelp) => {
-                    console.log(`Response from websocket for service  ${msg.id}:`);
-                    console.log(msg)
-                    let joinedHelps: Array<AnyHelp> = new Array();
-                    let hostedHelps: Array<AnyHelp> = new Array();
-
-                    this.store.select('help').pipe(take(1)).subscribe((elem: HelpState) => joinedHelps = elem.joinedHelps);
-                    joinedHelps = joinedHelps.map(elem => elem.id === msg.id ? msg : elem);
-                    this.store.dispatch(new SetJoinedHelps(joinedHelps));
-
-                    this.store.select('help').pipe(take(1)).subscribe((elem: HelpState) => hostedHelps = elem.hostedHelps);
-                    hostedHelps = hostedHelps.map(elem => elem.id === msg.id ? msg : elem);
-                    this.store.dispatch(new SetHostedHelps(hostedHelps));
-                });
-            });
-
+        
         this.dispatcher.pipe(takeUntil(this.componentDestroyed$)).subscribe(
             (data) => {
                 if (data.type === CREATE_USER_SUCCESS) {
