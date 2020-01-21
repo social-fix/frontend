@@ -24,7 +24,7 @@ import { RegisterComponent } from './static/register/register.component';
     animations: [routerTransition]
 })
 export class AppComponent implements OnInit, OnDestroy {
-    @ViewChild('bottom')
+    @ViewChild('bottom', {static: true})
     bottom: ElementRef;
 
     private componentDestroyed$: Subject<void> = new Subject<void>();
