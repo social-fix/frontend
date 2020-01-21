@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { AngularOpenlayersModule } from 'ngx-openlayers';
+import { GestureConfig } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompleteInfoComponent } from './complete-info/complete-info.component';
@@ -16,7 +17,7 @@ import { StaticModule } from './static';
 import { SuccessfulRegistrationComponent } from './successful-registration/successful-registration.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
-import { ServiceCardComponent } from './dashboard/service-card/service-card.component';
+import { ServiceCardComponent } from './shared/service-card/service-card.component';
 import { HelpListComponent } from './search-help/help-list/help-list.component';
 import { HelpMapComponent } from './search-help/help-map/help-map.component';
 
@@ -30,7 +31,6 @@ import { HelpMapComponent } from './search-help/help-map/help-map.component';
     // angular
     BrowserAnimationsModule,
     BrowserModule,
-    AngularOpenlayersModule,
 
     // core & shared
     CoreModule,
@@ -41,7 +41,10 @@ import { HelpMapComponent } from './search-help/help-map/help-map.component';
     OfferHelpModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
+    //map
+    LeafletModule.forRoot()
   ],
   declarations: [
                   AppComponent,
@@ -57,7 +60,9 @@ import { HelpMapComponent } from './search-help/help-map/help-map.component';
                   HelpListComponent,
                   HelpMapComponent,
                 ],
-  providers: [],
+  providers: [
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
