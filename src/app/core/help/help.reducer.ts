@@ -44,7 +44,7 @@ export function helpReducer(state: HelpState = initState, action: Action) {
         case UPDATE_HELP_SUCCESS:
             return { ...state, loading: false }
         case SUBSCRIBE_TO_HELP_SUCCESS:
-        return { ...state, joinedHelps: [...state.joinedHelps, action.payload], loading: false }
+            return { ...state, joinedHelps: [...state.joinedHelps, action.payload], loading: false }
         case CREATE_HELP_ERROR:
         case UPDATE_HELP_ERROR:
         case SUBSCRIBE_TO_HELP_ERROR:

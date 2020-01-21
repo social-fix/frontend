@@ -4,7 +4,6 @@ import { Bed, Meal, Washing } from '@app/core/help/help.model';
 import { User } from '@app/core/user/user.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -20,8 +19,11 @@ export class HelpService {
     getByCriteria(criteria: string, user_id: number = this.user_id): Observable<any> {
         return this.http.get(`service/${criteria}/${user_id}/`);
     }
-    listServices(): Observable<any> {
+    servicesList(): Observable<any> {
         return this.http.get('service/');
+    }
+    groupedServicesList(): Observable<any> {
+        return this.http.get('service/groupedList');
     }
     subscribeToHelp(help: string, help_id: number) {
         return this.http.post(`service/${help}/subscribeToHelp/${help_id}/`, null);
