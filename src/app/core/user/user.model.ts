@@ -1,12 +1,17 @@
 import * as moment from 'moment';
 import { Pipe, PipeTransform } from '@angular/core';
 
+export interface Coord {
+    x: number;
+    y: number;
+}
 export interface Location {
     street: string;
     street_number: number;
     postal_code: string;
     city: string;
     country: string;
+    coordinates: Coord | undefined;
 }
 export interface User {
     id: number | undefined;
@@ -22,7 +27,7 @@ export interface User {
 export enum Gender {
     FEMALE,
     MALE,
-    OTHER,
+    NON_BINARY,
 };
 
 @Pipe ({
