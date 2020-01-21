@@ -1,4 +1,5 @@
 import { Moment } from "moment";
+import { User } from "../user/user.model";
 
 export enum HELP_TYPE{
     MEAL,
@@ -13,7 +14,7 @@ export interface Help {
     end: Moment,
     guest_limit: number,
     comment: string,
-    sender: number,
+    sender: User,
     guests: Array<number>
 }
 
