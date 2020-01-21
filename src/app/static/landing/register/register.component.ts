@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     genders = [
         { value: 0, viewValue: 'FEMALE' },
         { value: 1, viewValue: 'MALE' },
-        { value: 2, viewValue: 'OTHER' }
+        { value: 2, viewValue: 'NON BINARY' }
     ];
     componentDestroyed$: Subject<void> = new Subject();
     registerForm: FormGroup;
