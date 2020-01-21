@@ -2,7 +2,6 @@
 
 @import '../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../node_modules/bootstrap/scss/bootstrap-grid';
-@import '../node_modules/openlayers/css/ol';
 
 @import '../node_modules/font-awesome/scss/font-awesome';
 
@@ -15,10 +14,12 @@
 @import 'themes/default-theme.scss';
 
 
+
 @import 'styles-reset.scss-theme';
 @import 'app/app.component.scss-theme';
 @import 'app/static/landing/landing.component.scss-theme';
 @import 'app/offer-help/offer-help.component.scss-theme';
+
 
 
 @mixin custom-components-theme($theme) {
