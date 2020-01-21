@@ -1,21 +1,35 @@
 <div class="container">
   <label>Search for:</label>
-    <section>
-        <mat-checkbox>a bed</mat-checkbox>
-        <mat-checkbox>a meal</mat-checkbox>
-        <mat-checkbox>a bathroom</mat-checkbox>
-      </section>
-      <mat-spinner diameter="100"  *ngIf="loading"></mat-spinner>
-      <mat-error *ngIf="error">{{error}}</mat-error>
-  <mat-tab-group *ngIf="searchResult">
+  <section>
+    <mat-checkbox [(ngModel)]="bedChecked">a bed</mat-checkbox>
+    <mat-checkbox [(ngModel)]="mealChecked">a meal</mat-checkbox>
+    <mat-checkbox [(ngModel)]="bathChecked">a bathroom</mat-checkbox>
+    search distance:
+    <mat-slider
+        [min]="MIN_DISTANCE"
+        [max]="MAX_DISTANCE"
+        thumbLabel
+        [displayWith]="formatSlider"
+        [(ngModel)]="distance">
+    </mat-slider>
+  </section>
+  <mat-spinner diameter="100" *ngIf="loading"></mat-spinner>
+  <mat-error *ngIf="error">{{error}}</mat-error>
+  <mat-tab-group *ngIf="groupedHelps">
     <mat-tab label="list">
       <div class="tab-content">
-        <sf-help-list [helps]=searchResult></sf-help-list>
+        <!-- The ng-template makes the tab lazy -->
+        <ng-template matTabContent>
+          <sf-help-list [helps]=helps></sf-help-list>
+        </ng-template>
       </div>
     </mat-tab>
     <mat-tab label="map" position="0">
       <div class="tab-content">
-        <sf-help-map></sf-help-map>
+        <!-- The ng-template makes the tab lazy -->
+        <ng-template matTabContent>
+          <sf-help-map [helps]=groupedHelps></sf-help-map>
+        </ng-template>
       </div>
     </mat-tab>
   </mat-tab-group>

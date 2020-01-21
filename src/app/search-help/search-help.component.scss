@@ -1,17 +1,20 @@
-.container{
+.container {
 	section {
 		mat-checkbox {
 			margin-right: 15px;
 		}
-	  }
+	}
+
 	mat-spinner {
-		width: 100%;
-		margin-top: 20%;
-		margin-left: auto;
+		width       : 100%;
+		margin-top  : 20%;
+		margin-left : auto;
 		margin-right: auto;
 	}
-	z-index: -1;	
-	mat-tab-group{
+
+	z-index: -1;
+
+	mat-tab-group {
 		padding: 5%;
 	}
 }

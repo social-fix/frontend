@@ -17,7 +17,6 @@ export class HelpListComponent extends BaseHelpList implements OnInit {
     }
 
     ngOnInit() {
-
     }
 
 
