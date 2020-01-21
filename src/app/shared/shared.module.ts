@@ -24,6 +24,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SnackbarComponent } from './snackbar.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { SnackbarComponent } from './snackbar.component';
     MatDialogModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSliderModule
   ],
   declarations: [
     SnackbarComponent
@@ -87,7 +89,8 @@ import { SnackbarComponent } from './snackbar.component';
     MatDatepickerModule,
     MatMomentDateModule,
     MatExpansionModule,
-    SnackbarComponent
+    SnackbarComponent,
+    MatSliderModule
   ]
 })
 export class SharedModule {}
