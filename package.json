@@ -79,7 +79,7 @@
     "protractor": "^5.4.2",
     "rimraf": "^2.7.1",
     "rxjs-tslint": "^0.1.7",
-    "standard-version": "^4.2.0",
+    "standard-version": "^8.0.1",
     "ts-node": "~5.0.0",
     "tslint": "^5.20.1",
     "typescript": "^3.5.3",
