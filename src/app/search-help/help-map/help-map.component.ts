@@ -43,7 +43,7 @@ export class HelpMapComponent implements OnInit, AfterViewInit {
             {
               iconUrl: 'assets/img/genericPin.svg',
               iconSize: [40, 48],
-              iconAnchor: [20, 36]
+              iconAnchor: [20, 48]
             }
           )
         }
