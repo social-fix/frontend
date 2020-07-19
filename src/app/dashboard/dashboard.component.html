@@ -55,7 +55,7 @@
 		<h1>Services you registered to</h1>
 		<mat-accordion>
 			<div *ngFor="let help of joinedHelps">
-				<sf-service-card [help]=help></sf-service-card>
+				<sf-service-card [help]=help [userRegistered]="true"></sf-service-card>
 			</div>
 		</mat-accordion>
 		<p *ngIf="joinedHelps.length == 0">no booked services so far</p>

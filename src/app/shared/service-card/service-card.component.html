@@ -36,15 +36,20 @@
                 <p>{{help.guests.length}}/{{help.guest_limit}}</p>
             </div>
         </div>
-        <mat-expansion-panel *ngIf="help.comment != ''">
+        <div class="col"  *ngIf="help.comment != ''">
+            <b>Comments</b>
+            <p>{{help.comment}}</p>
+        </div>
+        <mat-expansion-panel *ngIf="userRegistered && help" [expanded]="false">
             <mat-expansion-panel-header>
                 <mat-panel-description>
-                    unroll to read the comments
+                    unroll to see the address
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <div class="col">
-                <b>Comments</b>
-                <p>{{help.comment}}</p>
+            <p>{{help.sender.location.street}} {{help.sender.location.house_number}}</p>
+            <p>{{help.sender.location.postal_code}}, {{help.sender.location.city}}</p>
+            <p>{{help.sender.location.country}}</p>
+            <div class="map-container" id='map' leaflet [leafletOptions]="mapOptions" [leafletLayers]="mapLayers">
             </div>
         </mat-expansion-panel>
     </mat-card-content>

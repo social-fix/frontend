@@ -41,7 +41,6 @@ export class SearchHelpComponent implements OnInit, OnDestroy {
                 delete helps[userId]
                 this.groupedHelps = helps
                 this.helps = Object.values<AnyHelp>(helps).reduce((acc, help) => acc.concat(help), []);
-                console.log(this.helps)
                 this.loading = false;
             },
             error => {

@@ -2,7 +2,7 @@
     <mat-list>
         <h3 mat-subheader>Available helps with selected criteria's: </h3>
         <div *ngFor="let help of helps" class="list-item">
-            <sf-service-card [help]=help></sf-service-card>
+            <sf-service-card [help]=help [userRegistered]="alreadyRegistered(help.id)"></sf-service-card>
           <button *ngIf="!alreadyRegistered(help.id)" mat-line mat-raised-button color="accent" class="registerButton" (click)="register(help)">register!</button>
           <button *ngIf="alreadyRegistered(help.id)" mat-line mat-raised-button color="accent" class="col-md-12" [disabled]="true" (click)="register(help)">already registered</button>
         </div> 

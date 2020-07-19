@@ -48,7 +48,6 @@ export class MealComponent extends BaseHelpContainerComponent implements OnInit,
     }
 
     onSubmit() {
-        console.log(this.type)
         super.onSubmit()
     }
 

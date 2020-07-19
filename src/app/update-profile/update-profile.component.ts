@@ -19,11 +19,11 @@ export class UpdateProfileComponent implements OnInit {
   ngOnInit() {
   }
   create(){
-    this.store.dispatch(new CreateUser({name: "test", birthdate: "1993-05-09T00:00:00Z", gender: Gender.OTHER, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}));
+    this.store.dispatch(new CreateUser({name: "test", birthdate: "1993-05-09T00:00:00Z", gender: Gender.NON_BINARY, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}));
     //this.userService.createUser({name: "test", birthdate: "1993-05-09T00:00:00Z", sex: Sex.OTHER, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}).subscribe(data => console.log(data));
   }
   update(){
-    this.store.dispatch(new UpdateUser({name: "juju", birthdate: "1993-05-09T00:00:00Z", gender: Gender.OTHER, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}));
+    this.store.dispatch(new UpdateUser({name: "juju", birthdate: "1993-05-09T00:00:00Z", gender: Gender.NON_BINARY, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}));
     //this.userService.updateUser({name: "NIEUW", birthdate: "1993-05-09T00:00:00Z", sex: Sex.OTHER, catchPhrase: "on s'boit un godet?", description: "je veux voler les pauvres"}).subscribe(data => console.log(data));
   }
   // get(){

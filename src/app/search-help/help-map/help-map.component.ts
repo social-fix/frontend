@@ -55,7 +55,6 @@ export class HelpMapComponent implements OnInit, AfterViewInit {
   }
 
   onMapReady(map: L.Map) {
-    console.log('map')
     setTimeout(() => {
       map.invalidateSize();
     }, 3000);
