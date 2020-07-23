@@ -3,14 +3,14 @@ import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from
 import { MatDialog } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { ActivationEnd, Router } from '@angular/router';
-import { AuthLogin, AuthLogout, CREATE_USER_SUCCESS, LOGOUT, routerTransition, SetUser } from '@app/core';
+import { AuthLogin, AuthLogout, CREATE_USER_SUCCESS, LOGOUT, routerTransition, SetUser, UserState } from '@app/core';
 import { ResetHelpState, SetHostedHelps, SetJoinedHelps } from '@app/core/help/help.actions';
 import { AnyHelp } from '@app/core/help/help.model';
 import { HelpService } from '@app/core/help/help.service';
 import { environment as env } from '@env/environment';
 import { ActionsSubject, Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
-import { filter, take, takeUntil } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
+import { filter, take, takeUntil, map } from 'rxjs/operators';
 import { HelpState } from './core/help/help.reducer';
 import { HelpCRUDService } from './core/websocket/help-crud.service';
 import { LoginComponent } from './static/login/login.component';
@@ -47,7 +47,8 @@ export class AppComponent implements OnInit, OnDestroy {
         ...this.navigation,
         { link: 'settings', label: 'Settings' }
     ];
-    isAuthenticated;
+    isAuthenticated: boolean;
+    userState$: Observable<UserState>;
 
     constructor(
         public overlayContainer: OverlayContainer,
@@ -57,7 +58,6 @@ export class AppComponent implements OnInit, OnDestroy {
         private dialog: MatDialog,
         private dispatcher: ActionsSubject,
         private helpService: HelpService,
-        private wsService: HelpCRUDService
     ) { }
 
 
@@ -72,10 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 }
             }
         );
-        this.store
-            .select('user')
-            .pipe(takeUntil(this.componentDestroyed$))
-            .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
+    this.userState$ = this.store.select('user');
         this.router.events
             .pipe(
                 takeUntil(this.componentDestroyed$),

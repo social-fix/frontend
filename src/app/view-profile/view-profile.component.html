@@ -1,4 +1,4 @@
-<div class="container" *ngIf="user$ | async as u">
+<div class="container">
 	<button mat-fab [ngClass]="animateOnRouteEnter" color="accent" id="edit" routerLink="/updateProfile">
 		<mat-icon aria-label="edit your profile">edit</mat-icon>
 	</button>
@@ -7,18 +7,18 @@
 			<mat-card>
 				<mat-card-content>
 					<img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-					<p>{{u.name}}</p>
-					<p>{{u.gender | getGender}}, {{u.birthdate | age}} years old</p>
-					<p *ngIf="u.location">{{u.location.city}}, {{u.location.country}}</p>
+					<p>{{user.name}}</p>
+					<p>{{user.gender | getGender}}, {{user.birthdate | age}} years old</p>
+					<p *ngIf="user.location">{{user.location.city}}, {{user.location.country}}</p>
 				</mat-card-content>
 			</mat-card>
 		</div>
 		<div class="col-sm-8">
 			<div class="catchphrase">
-				<p>"{{u.catchPhrase}}"</p>
+				<p>"{{user.catchPhrase}}"</p>
 			</div>
 		</div>
 	</div>
-		<h2>About {{u.name}}</h2>
-		<p>{{u.description}}</p>
+		<h2>About {{user.name}}</h2>
+		<p>{{user.description}}</p>
 </div>

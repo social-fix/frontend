@@ -60,7 +60,7 @@ const routes: Routes = [
     path: 'completeInfo',
     component: CompleteInfoComponent,
     data: {
-      title: 'a fiew more steps...'
+      title: 'a few more steps...'
     },
     canActivate: [AuthGuardService]
   },

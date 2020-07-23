@@ -3,14 +3,14 @@
 		<div class="col-sm-5 col-md-4 col-lg-3">
 			<mat-card class="user-card" [ngClass]="animateOnRouteEnter" *ngIf="user$ | async as u">
 				<mat-card-header>
-					<div mat-card-avatar class="user-header-image"></div>
+					<sf-avatar></sf-avatar>
 				</mat-card-header>
 				<mat-card-content>
 					<mat-card-title>{{u.name}}</mat-card-title>
 					<mat-card-subtitle>{{u.gender | getGender}}, {{u.birthdate | age}} years old</mat-card-subtitle>
 					<mat-card-subtitle *ngIf="u.location">{{u.location.city}}, {{u.location.country}}</mat-card-subtitle>
 					<div class="profileButtons">
-						<a mat-button routerLink="/viewProfile">view profile</a>
+						<a mat-button [routerLink]="['/viewProfile', u]">view profile</a>
 						<a mat-button routerLink="/updateProfile">edit profile</a>
 					</div>
 				</mat-card-content>
@@ -46,7 +46,7 @@
 		<h1>Services you offer</h1>
 		<mat-accordion>
 			<div *ngFor="let help of hostedHelps">
-				<sf-service-card [help]=help></sf-service-card>
+				<sf-service-card [help]=help ></sf-service-card>
 			</div>
 		</mat-accordion>
 		<p *ngIf="hostedHelps.length == 0">no booked services so far</p>
@@ -55,7 +55,7 @@
 		<h1>Services you registered to</h1>
 		<mat-accordion>
 			<div *ngFor="let help of joinedHelps">
-				<sf-service-card [help]=help [userRegistered]="true"></sf-service-card>
+				<sf-service-card [help]=help [userRegistered]="true" [showHost]="true"></sf-service-card>
 			</div>
 		</mat-accordion>
 		<p *ngIf="joinedHelps.length == 0">no booked services so far</p>

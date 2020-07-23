@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { GestureConfig } from '@angular/material';
@@ -17,9 +16,9 @@ import { StaticModule } from './static';
 import { SuccessfulRegistrationComponent } from './successful-registration/successful-registration.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
-import { ServiceCardComponent } from './shared/service-card/service-card.component';
 import { HelpListComponent } from './search-help/help-list/help-list.component';
 import { HelpMapComponent } from './search-help/help-map/help-map.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -43,8 +42,6 @@ import { HelpMapComponent } from './search-help/help-map/help-map.component';
     // app
     AppRoutingModule,
 
-    //map
-    LeafletModule.forRoot()
   ],
   declarations: [
                   AppComponent,
@@ -56,7 +53,6 @@ import { HelpMapComponent } from './search-help/help-map/help-map.component';
                   CompleteInfoComponent,
                   SuccessfulRegistrationComponent,
                   OfferHelpComponent,
-                  ServiceCardComponent,
                   HelpListComponent,
                   HelpMapComponent,
                 ],

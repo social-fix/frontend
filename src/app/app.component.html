@@ -16,7 +16,7 @@
         </mat-nav-list>
     </mat-sidenav>
 
-    <div class="toolbar">
+    <div class="toolbar"  *ngIf="userState$ | async as u">
         <mat-toolbar color="primary">
             <button mat-icon-button class="d-md-none branding" (click)="sidenav.open()">
                 <mat-icon>menu</mat-icon>
@@ -26,20 +26,20 @@
                 <img [src]="logo" /></span>
             <span routerLink="/" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo" />SocialFix</span>
             <span routerLink="/" class="d-sm-none branding spacer d-none d-md-inline"><img [src]="logo" />SocialFix</span>
-            <button mat-raised-button *ngIf="!isAuthenticated" (click)="onRegisterClick()" class="register" color="accent">
+            <button mat-raised-button *ngIf="!u.isAuthenticated" (click)="onRegisterClick()" class="register" color="accent">
                 register
             </button>
-            <button mat-button *ngIf="!isAuthenticated" (click)="onLoginClick()" class="sign-in-button">
-                log in
+            <button mat-button *ngIf="!u.isAuthenticated" (click)="onLoginClick()" class="sign-in-button">
+                log in {{u.name}}
             </button>
-            <button *ngIf="isAuthenticated" mat-icon-button routerLink="settings" class="d-sm-inline">
+            <button *ngIf="u.isAuthenticated" mat-icon-button routerLink="settings" class="d-sm-inline">
                 <mat-icon color="accent">settings</mat-icon>
             </button>
-            <button *ngIf="isAuthenticated" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
+            <button *ngIf="u.isAuthenticated" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
                 <mat-icon color="accent">person</mat-icon>
             </button>
             <mat-menu #toolbarUserMenu="matMenu">
-                <button mat-menu-item routerLink="/viewProfile">
+                <button mat-menu-item [routerLink]="['/viewProfile', u.user]">
                     <span>view profile</span>
                 </button>
                 <button mat-menu-item routerLink="/updateProfile">

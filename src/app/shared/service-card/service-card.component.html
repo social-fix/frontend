@@ -1,6 +1,10 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title clas="row">
+            <a mat-button *ngIf="showHost" class="col" [routerLink]="['/viewProfile', help.sender]">
+                <sf-avatar></sf-avatar>
+                <p>{{ help.sender.name }}</p>
+            </a>
             <i class="fa fa-bed fa-2x" *ngIf="help.type == 'bed'"></i>
             <i class="fa fa-spoon fa-2x" *ngIf="help.type == 'meal'"></i>
             <i class="fa fa-shower fa-2x" *ngIf="help.type == 'washing'"></i>

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +25,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SnackbarComponent } from './snackbar.component';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { AvatarComponent } from './avatar/avatar.component';
+import { ServiceCardComponent } from './service-card/service-card.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -32,6 +36,7 @@ import {MatSliderModule} from '@angular/material/slider';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
 
     MatButtonModule,
     MatRadioModule,
@@ -54,10 +59,15 @@ import {MatSliderModule} from '@angular/material/slider';
     MatDatepickerModule,
     MatMomentDateModule,
     MatExpansionModule,
-    MatSliderModule
+    MatSliderModule,
+
+    //map
+    LeafletModule.forRoot()
   ],
   declarations: [
-    SnackbarComponent
+    SnackbarComponent,
+    AvatarComponent,
+    ServiceCardComponent
   ],
   entryComponents: [
     SnackbarComponent
@@ -66,7 +76,7 @@ import {MatSliderModule} from '@angular/material/slider';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
+    LeafletModule,
     MatButtonModule,
     MatRadioModule,
     MatMenuModule,
@@ -90,7 +100,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatMomentDateModule,
     MatExpansionModule,
     SnackbarComponent,
-    MatSliderModule
+    MatSliderModule,
+    AvatarComponent,
+    ServiceCardComponent
   ]
 })
-export class SharedModule {}
+export class SharedModule { }

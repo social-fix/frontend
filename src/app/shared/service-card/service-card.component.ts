@@ -8,8 +8,9 @@ import { tileLayer, latLng, icon, marker } from 'leaflet';
   styleUrls: ['./service-card.component.scss']
 })
 export class ServiceCardComponent implements OnInit {
-    @Input() userRegistered: boolean;
-    @Input() help: AnyHelp;
+  @Input() userRegistered: boolean = false;
+  @Input() showHost: boolean =false;
+  @Input() help: AnyHelp;
   constructor() { }
   readonly mapOptions = {
     layers: [
