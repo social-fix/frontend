@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'sf-update-profile',
-  templateUrl: './update-profile.component.html',
-  styleUrls: ['./update-profile.component.scss']
+  selector: 'sf-update-profile-form',
+  templateUrl: './update-profile-form.component.html',
+  styleUrls: ['./update-profile-form.component.scss']
 })
-export class UpdateProfileComponent implements OnInit {
+export class UpdateProfileFormComponent implements OnInit {
   form: FormGroup;
   locationForm: FormGroup;
   componentDestroyed$: Subject<void> = new Subject();

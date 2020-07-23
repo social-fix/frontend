@@ -1,0 +1,19 @@
+form{
+    padding-left: 2%;
+    padding-bottom: 5%;
+    width: 100%;
+    mat-form-field{
+        width: 100%;
+    }
+    textarea{
+        background-color: white;
+    }
+
+
+    .bottomButtons{
+        float: right;
+        button{
+            margin-left: 5px;
+        }
+    }
+}

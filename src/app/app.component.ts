@@ -1,6 +1,5 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { ActivationEnd, Router } from '@angular/router';
 import { AuthLogin, AuthLogout, CREATE_USER_SUCCESS, LOGOUT, routerTransition, SetUser, UserState } from '@app/core';
@@ -15,6 +14,7 @@ import { HelpState } from './core/help/help.reducer';
 import { HelpCRUDService } from './core/websocket/help-crud.service';
 import { LoginComponent } from './static/login/login.component';
 import { RegisterComponent } from './static/register/register.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -35,13 +35,12 @@ export class AppComponent implements OnInit, OnDestroy {
     envName = env.envName;
     version = env.versions.app;
     year = new Date().getFullYear();
-    logo = require('../assets/logo.svg');
+    logo = '../assets/logo.svg';
     navigation = [
         { link: 'about', label: 'About us' },
         { link: 'faq', label: 'F.A.Q.' },
         { link: 'security', label: 'Security' },
         { link: 'support', label: 'Support the project!' }
-
     ];
     navigationSideMenu = [
         ...this.navigation,

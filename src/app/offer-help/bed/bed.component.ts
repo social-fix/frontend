@@ -5,7 +5,7 @@ import { Bed } from '@app/core/help/help.model';
 import { BaseHelpContainerComponent } from '@app/offer-help/offer-help.component';
 import { MY_FORMATS } from '@app/shared/date.format';
 import { Store, ActionsSubject } from '@ngrx/store';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'sf-bed',

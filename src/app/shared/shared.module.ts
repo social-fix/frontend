@@ -29,7 +29,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AvatarComponent } from './avatar/avatar.component';
 import { ServiceCardComponent } from './service-card/service-card.component';
 import { RouterModule } from '@angular/router';
-
+import { UpdateProfileFormComponent } from './update-profile-form/update-profile-form.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
   imports: [
@@ -61,13 +62,15 @@ import { RouterModule } from '@angular/router';
     MatExpansionModule,
     MatSliderModule,
 
+    NgxMatFileInputModule,
     //map
     LeafletModule.forRoot()
   ],
   declarations: [
     SnackbarComponent,
     AvatarComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    UpdateProfileFormComponent
   ],
   entryComponents: [
     SnackbarComponent
@@ -102,7 +105,9 @@ import { RouterModule } from '@angular/router';
     SnackbarComponent,
     MatSliderModule,
     AvatarComponent,
-    ServiceCardComponent
-  ]
+    ServiceCardComponent,
+    UpdateProfileFormComponent,
+    NgxMatFileInputModule
+  ],
 })
 export class SharedModule { }

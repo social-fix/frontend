@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { GestureConfig } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompleteInfoComponent } from './complete-info/complete-info.component';
@@ -18,7 +17,6 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { HelpListComponent } from './search-help/help-list/help-list.component';
 import { HelpMapComponent } from './search-help/help-map/help-map.component';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -57,7 +55,7 @@ import { RouterModule } from '@angular/router';
                   HelpMapComponent,
                 ],
   providers: [
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig },
   ],
   bootstrap: [AppComponent]
 })

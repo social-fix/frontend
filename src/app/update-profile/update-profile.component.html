@@ -1,11 +1,5 @@
-<div *ngIf="user$ | async as u">
-{{u.name}}
-{{u.birthdate}}
-{{u.gender}}
-{{u.description}}
-{{u.catchPhrase}}
-<button mat-button (click)="create()">create</button>
-<button mat-button (click)="update()">update</button>
-<button mat-button (click)="get()">get</button>
-<button mat-button (click)="delete()">delete</button>
+<div class="container-fluid">
+    <h1>Edit your profile</h1>
+    <br>
+    <sf-update-profile-form></sf-update-profile-form>
 </div>

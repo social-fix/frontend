@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { AuthLogin, SetUser } from '@app/core';
 import { Store } from '@ngrx/store';
@@ -10,6 +9,7 @@ import { LoginComponent } from '../login/login.component';
 import { AnyHelp } from '@app/core/help/help.model';
 import { SetHostedHelps, SetJoinedHelps } from '@app/core/help/help.actions';
 import { HelpService } from '@app/core/help/help.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'sf-finalized-registration',

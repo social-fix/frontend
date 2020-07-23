@@ -5,7 +5,7 @@ import { AgePipe, GetGenderPipe } from '@app/core/user/user.model';
 import { environment } from '@env/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { MetaReducer, StoreModule } from '@ngrx/store';
-import { storeFreeze } from 'ngrx-store-freeze';
+
 import { AuthGuardService } from './auth/auth-guard.service';
 import { RequestInterceptor } from './http-interceptors/request.interceptor';
 import { LocalStorageService } from './local-storage/local-storage.service';
@@ -23,9 +23,9 @@ import { WebsocketService } from './websocket/websocket.service';
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
 
-if (!environment.production) {
-  metaReducers.unshift(debug, storeFreeze);
-}
+// if (!environment.production) {
+//   metaReducers.unshift(debug, storeFreeze);
+// }
 
 @NgModule({
   imports: [
@@ -39,7 +39,7 @@ if (!environment.production) {
         user: userReducer,
         help: helpReducer
       },
-      { metaReducers }
+      { metaReducers, runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true } }
     ),
     EffectsModule.forRoot([UserEffects, HelpEffects])
   ],
